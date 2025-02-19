@@ -116,16 +116,6 @@ mathematician = Agent(name="mathematician",
 # persona is not needed for Dify agent, it already has its own persona
 ```
 
-or connect a websocket agent like this.
-
-```python
-agent = Agent(name="assistant", 
-              role="Assistant",
-              description="Transfer to me if you need help",
-              websocket_url="ws://localhost:5358/ws_agent_demo",
-              verbose=True)
-```
-
 
 ### Step Two
 
