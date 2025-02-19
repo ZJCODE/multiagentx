@@ -2,7 +2,9 @@
 
 A flexible framework for building multi-agent systems.
 
-## Install from source
+## Installation
+
+### Install from source
 
 You can install the package directly from source:
 
@@ -17,7 +19,7 @@ pip install -e .
 ```
 
 
-## Install from pypi
+### Install from pypi
 
 You can install the package from pypi
 

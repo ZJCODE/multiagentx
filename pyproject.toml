@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "multiagentx"
-version = "0.1.1"
+version = "0.1.3"
 description = "multi agent framework"
 authors = [
     {name = "ZJun", email = "zhangjun310@live.com"},
@@ -36,4 +36,4 @@ dependencies = [
 Repository = "https://github.com/ZJCODE/multiagentx"
 
 [tool.setuptools]
-packages = ["multiagentx"]
+packages = {find = {include = ["multiagentx*"], exclude = ["examples*"]}}
