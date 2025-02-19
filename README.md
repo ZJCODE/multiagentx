@@ -25,6 +25,14 @@ python -m build
 twine upload dist/*
 ```
 
+# update code and upload to pypi
+
+```bash
+rm -rf dist/ build/ *.egg-info/
+python -m build
+twine upload dist/*
+```
+
 # Usage
 
 ```bash
