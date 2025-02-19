@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "multiagentx"
-version = "0.1.0"
+version = "0.1.1"
 description = "multi agent framework"
 authors = [
     {name = "ZJun", email = "zhangjun310@live.com"},
