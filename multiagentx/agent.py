@@ -367,11 +367,11 @@ class Agent(Member):
                 if not isinstance(item, dict):
                     continue
 
-                content_type = item.get('content_type')
+                content_type = item.get('content_type', 1) # Default to TEXT type
                 content = item.get('content')
                 nickname = item.get('sender_nickname', self.name)
 
-                if content_type == '1' and content:  # TEXT type
+                if content_type == 1 and content:  # TEXT type
                     messages.append(Message(
                         sender=nickname,
                         action="talk",

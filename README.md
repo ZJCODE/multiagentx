@@ -117,6 +117,19 @@ mathematician = Agent(name="mathematician",
 # persona is not needed for Dify agent, it already has its own persona
 ```
 
+or connect a url iagent like this
+
+```python
+
+iAgent = Agent(name="Tim",
+               role="Designer",
+               description="Transfer to me if you need help with art and design.",
+               iagent_url="http://127.0.0.1:7860/v1/chat",
+               verbose=True)
+
+iAgent.do(message="Hey,who are you?",sender="Jun")
+
+```
 
 ### Step Two
 
