@@ -4,20 +4,6 @@ A flexible framework for building multi-agent systems.
 
 ## Installation
 
-### Install from source
-
-You can install the package directly from source:
-
-```bash
-pip install .
-```
-
-For development installation:
-
-```bash
-pip install -e .
-```
-
 
 ### Install from pypi
 
@@ -32,6 +18,21 @@ You can also upgrade the package from pypi
 ```bash
 pip install multiagentx --upgrade -i https://pypi.org/simple
 ```
+
+### Install from source
+
+You can also install the package directly from source:
+
+```bash
+pip install .
+```
+
+For development installation:
+
+```bash
+pip install -e .
+```
+
 
 ## Usage
 
