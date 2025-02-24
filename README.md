@@ -36,6 +36,7 @@ pip install -e .
 
 ## Usage
 
+Comprehensive examples can be located in the [Examples](https://github.com/ZJCODE/multiagentx/tree/main/examples) section.
 
 ### Step Zero
 
