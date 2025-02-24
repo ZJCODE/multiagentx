@@ -181,12 +181,6 @@ class Group:
             role_description (str): The description of the role of the new member.
             model (str): The model to use for the invitation. Defaults to "gpt-4o-mini".
         """
-        
-        class AgentSchema(BaseModel):
-            name:Optional[str]
-            role:str
-            description:str
-            persona:str
 
         prompt = (
             "## Role Description\n"
@@ -197,6 +191,13 @@ class Group:
             "2. **Role**: Role like 'Designer', 'Engineer', 'Manager', etc.\n"
             "3. **Description**: Explain the scenarios or situations where this role would be most helpful.\n"
             "4. **Persona**: Describe the ideal persona for this role, including personality traits, skills, and any other relevant characteristics.\n\n"
+            "### EXAMPLE JSON OUTPUT:\n\n"
+            "{\n"
+            '    "name": true,\n'
+            '    "role": "xxx",\n'
+            '    "description": "xxx",\n'
+            '    "persona": "xxx"\n'
+            "}\n\n"
         )
 
         if self.env.language is not None:
@@ -205,20 +206,21 @@ class Group:
         messages = [{"role":"system","content":"You are good at designing agents. Design an agent for the group."}]
         messages.append({"role":"user","content":prompt})
         
-        completion = self.model_client.beta.chat.completions.parse(
+        response = self.model_client.chat.completions.create(
             model=model,
             messages=messages,
             temperature=0.0,
-            response_format=AgentSchema,
+            response_format={"type": "json_object"}
         )
-        agent_desc = completion.choices[0].message.parsed
 
-        name = agent_desc.name if agent_desc.name else f"agent_{len(self.env.members)+1}"
+        agent_desc = json.loads(response.choices[0].message.content)
+
+        name = agent_desc.get('name',f"agent_{len(self.env.members)+1}")
 
         invite_agent = Agent(name=name,
-                             role=agent_desc.role,
-                             description=agent_desc.description,
-                             persona=agent_desc.persona,
+                             role=agent_desc.get('role',""),
+                             description=agent_desc.get('description',""),
+                             persona=agent_desc.get('persona',""),
                              model_client=self.model_client,
                              verbose=self.verbose)
         
