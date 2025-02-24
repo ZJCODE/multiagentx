@@ -42,7 +42,7 @@ pip install -e .
 ```python
 from dotenv import load_dotenv
 from openai import OpenAI
-from src import Env,Agent,Group
+from multiagentx import Env,Agent,Group
 
 load_dotenv()
 # model_client used for creating Openai agent or Group internal processing
