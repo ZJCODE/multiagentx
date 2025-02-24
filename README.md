@@ -218,6 +218,7 @@ g.dismiss_group()
 chat with group of agents(dynamic agent selection)
 
 ```python
+# build a group with agent like mathematician, artist,resercher etc then do chat with them
 response= g.chat("Can you explain the concept of complex numbers?",model="gpt-4o-mini")
 response= g.chat("Can you help me with art?",model="gpt-4o-mini")
 ```
@@ -225,12 +226,14 @@ response= g.chat("Can you help me with art?",model="gpt-4o-mini")
 internal dialogue within group of agents based on the current environment description
 
 ```python
+# build a group with agent like some friends, then let them chat with each other
 g.dialogue(model="gpt-4o-mini",max_turns=10)
 ```
 
 task for group of agents
 
 ```python
+# build a group with agent like product manager, designer, engineer etc then let them work together to complete a task
 response = g.task("I want to build a simplistic and user-friendly bicycle help write a design brief.",model="gpt-4o-mini",strategy="auto")
 ```
 
